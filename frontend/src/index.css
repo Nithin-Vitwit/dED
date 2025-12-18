@@ -1,0 +1,756 @@
+/* ==========================================
+   RETRO-TECH THEME - Global Styles
+   ========================================== */
+
+/* CSS Custom Properties */
+:root {
+    --bg-primary: #FEFEFE;
+    --bg-secondary: #F5F5F5;
+    --text-primary: #000000;
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #e0e0e0;
+    --text-primary: #1a1a1a;
+    --accent-yellow: #FFD700;
+    --border-color: #1a1a1a;
+    --border-width: 1px;
+    --border-style: solid;
+
+    --font-mono: 'DM Mono', 'Courier New', monospace;
+    --font-sans: 'DM Mono', 'Courier New', monospace;
+}
+
+/* Global Reset & Base */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* Bootstrap Overrides */
+.btn {
+    border-radius: 0 !important;
+    border: var(--border-width) var(--border-style) var(--border-color) !important;
+    font-family: var(--font-mono) !important;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    transition: transform 0.1s ease;
+}
+
+.btn:hover {
+    background: var(--bg-secondary) !important;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--text-primary) !important;
+    color: var(--bg-primary) !important;
+}
+
+.btn-primary:hover {
+    background: var(--text-primary) !important;
+    opacity: 0.9;
+}
+
+.card {
+    border-radius: 0 !important;
+    border: var(--border-width) var(--border-style) var(--border-color) !important;
+    background: var(--bg-primary);
+    box-shadow: none !important;
+}
+
+.form-control {
+    border-radius: 0 !important;
+    border: var(--border-width) var(--border-style) var(--border-color) !important;
+    font-family: var(--font-mono) !important;
+    background: var(--bg-primary);
+}
+
+.form-control:focus {
+    border-color: var(--text-primary) !important;
+    box-shadow: none !important;
+    outline: 2px solid var(--text-primary);
+    outline-offset: 2px;
+}
+
+.alert {
+    border-radius: 0 !important;
+    border: var(--border-width) var(--border-style) var(--border-color) !important;
+}
+
+.badge {
+    border-radius: 0 !important;
+    border: var(--border-width) var(--border-style) var(--border-color);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    padding: 4px 8px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-sans) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Utility Classes */
+.retro-border {
+    border: var(--border-width) var(--border-style) var(--border-color);
+}
+
+.retro-divider {
+    width: 100%;
+    height: var(--border-width);
+    background: var(--border-color);
+    margin: 2rem 0;
+}
+
+.yellow-highlight {
+    background: var(--accent-yellow);
+    padding: 2px 6px;
+    display: inline-block;
+}
+
+.mono-text {
+    font-family: var(--font-mono);
+}
+
+.squared {
+    border-radius: 0 !important;
+}
+
+/* Responsive Hero Title Image */
+.hero-title-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 190px;
+    display: block;
+    margin: 0 auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+    .hero-title-image {
+        max-height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-image {
+        max-height: 80px;
+    }
+}
+
+/* Authentic Halftone Dot Matrix Effect - Exact PERMACAST Style */
+.pixelated-hero.dot-matrix {
+    font-family: 'Courier New', 'Courier', monospace !important;
+    font-weight: 900 !important;
+    font-size: 4.5rem !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding: 1.5rem 3rem !important;
+    border: 3px solid var(--border-color) !important;
+    background: var(--bg-primary) !important;
+    color: #000000 !important;
+    /* Solid black text on top */
+    z-index: 2;
+}
+
+/* Halftone dot pattern shadow layer */
+.pixelated-hero.dot-matrix::before {
+    content: attr(data-text) !important;
+    position: absolute !important;
+    left: 4px !important;
+    top: 4px !important;
+    right: -4px !important;
+    bottom: -4px !important;
+    z-index: 1 !important;
+    color: transparent !important;
+    letter-spacing: 0.15em !important;
+    /* Create dot pattern using background */
+    background-image:
+        radial-gradient(circle, #000 35%, transparent 35%),
+        radial-gradient(circle, #000 35%, transparent 35%);
+    background-size: 4px 4px;
+    background-position: 0 0, 2px 2px;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Additional halftone layer for depth */
+.pixelated-hero.dot-matrix::after {
+    content: attr(data-text) !important;
+    position: absolute !important;
+    left: 6px !important;
+    top: 6px !important;
+    z-index: 0 !important;
+    color: transparent !important;
+    letter-spacing: 0.15em !important;
+    /* Lighter dot pattern for gradient effect */
+    background-image:
+        radial-gradient(circle, rgba(0, 0, 0, 0.4) 30%, transparent 30%),
+        radial-gradient(circle, rgba(0, 0, 0, 0.4) 30%, transparent 30%);
+    background-size: 5px 5px;
+    background-position: 0 0, 2.5px 2.5px;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Original fallback */
+.pixelated-hero {
+    font-family: 'Courier New', 'Courier', monospace;
+    font-weight: 900;
+    font-size: 4.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 1.5rem 3rem;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    /* Retro terminal-style padding */
+    padding: 1.5rem 2rem;
+}
+
+/* Responsive retro spacing */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Container fluid with retro spacing */
+.container-fluid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-fluid {
+        padding-left: 0.25rem !important;
+        padding-right: 0.25rem !important;
+    }
+}
+
+/* VERY VISIBLE pixelated shadow effect */
+.pixelated-hero {
+    border: 3px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    text-shadow:
+        3px 3px 0 rgba(0, 0, 0, 0.6),
+        6px 6px 0 rgba(0, 0, 0, 0.4),
+        9px 9px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Strong crosshatch pattern background */
+.pixelated-hero::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.15) 2px,
+            rgba(0, 0, 0, 0.15) 3px),
+        repeating-linear-gradient(90deg,
+            transparent 0px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.15) 2px,
+            rgba(0, 0, 0, 0.15) 3px);
+}
+
+/* Strong shadow copy of text */
+.pixelated-hero::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    z-index: -2;
+    color: rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.15em;
+}
+
+/* Dot Matrix Text Effect */
+.dot-matrix {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.2),
+        2px 2px 0 rgba(0, 0, 0, 0.15),
+        3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Wallet Button Overrides */
+.wallet-adapter-button {
+    border-radius: 0 !important;
+    border: var(--border-width) var(--border-style) var(--border-color) !important;
+    font-family: var(--font-mono) !important;
+    background: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    height: 36px !important;
+    padding: 0 12px !important;
+    font-size: 0.85rem !important;
+}
+
+.wallet-adapter-button:hover {
+    background: var(--bg-secondary) !important;
+}
+
+/* Connected wallet button - make it black */
+.wallet-adapter-button-trigger {
+    border-radius: 0 !important;
+    background: #000000 !important;
+    color: var(--accent-yellow) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.wallet-adapter-button-trigger:hover {
+    background: #1a1a1a !important;
+}
+
+.wallet-adapter-modal {
+    border-radius: 0 !important;
+}
+
+.wallet-adapter-modal-wrapper {
+    border-radius: 0 !important;
+}
+
+/* Grid System for Marketplace */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Course Cards */
+.course-card {
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--bg-primary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 0;
+    /* Ensure all cards are same height */
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.course-card-image {
+    width: 100%;
+    height: 400px;
+    /* Fixed height for all images - portrait aspect ratio */
+    object-fit: cover;
+    /* Maintain aspect ratio while filling space */
+    border-bottom: 2px solid var(--border-color);
+    display: block;
+}
+
+.course-card-body {
+    padding: 1rem;
+    flex: 1;
+    /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card-title {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.course-card-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    opacity: 0.7;
+}
+
+/* Category Filters */
+.category-filter {
+    display: inline-block;
+    padding: 6px 16px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: var(--border-width) var(--border-style) var(--border-color);
+    background: var(--bg-primary);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-filter:hover {
+    background: var(--bg-secondary);
+}
+
+.category-filter.active {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* Login Page Specific */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-logo {
+    font-size: 1.5rem;
+    font-family: var(--font-sans);
+    margin-bottom: 3rem;
+}
+
+.login-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.login-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+/* Navigation Overrides */
+.navbar {
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: var(--border-width) var(--border-style) var(--border-color) !important;
+    background: var(--bg-primary) !important;
+    padding: 0.75rem 2rem !important;
+}
+
+.navbar-brand {
+    font-family: var(--font-sans) !important;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Icon Buttons */
+.icon-btn {
+    width: 36px;
+    height: 36px;
+    border: var(--border-width) var(--border-style) var(--border-color);
+    background: var(--bg-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: var(--bg-secondary);
+    transform: translateY(-2px);
+}
+
+/* Remove default Bootstrap container padding for full bleed */
+.container-fluid {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ============================================ */
+/* MOBILE RESPONSIVE STYLES */
+/* ============================================ */
+
+/* Tablet Devices (768px and below) */
+@media (max-width: 768px) {
+
+    /* Navigation */
+    .navbar {
+        padding: 0.5rem 1rem !important;
+    }
+
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .icon-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .navbar-brand {
+        font-size: 0.9rem;
+    }
+
+    /* Course grid - 2 columns */
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+
+    /* Headings */
+    h2,
+    h3 {
+        font-size: 1.3rem !important;
+    }
+
+    /* Course cards - reduce image height */
+    .course-card-image {
+        height: 300px;
+    }
+
+    /* Category filters */
+    .category-filter {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Wallet button */
+    .wallet-adapter-button {
+        font-size: 0.75rem !important;
+        padding: 0 8px !important;
+    }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+
+    /* Navigation - even more compact */
+    .navbar {
+        padding: 0.4rem 0.5rem !important;
+    }
+
+    .icon-btn {
+        width: 28px;
+        height: 28px;
+        margin-left: 0.25rem;
+    }
+
+    .icon-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .navbar-brand {
+        font-size: 0.85rem;
+    }
+
+    /* Course grid - 1 column */
+    .course-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    /* Course cards */
+    .course-card-image {
+        height: 250px;
+    }
+
+    .course-card-title {
+        font-size: 0.9rem;
+    }
+
+    .course-card-meta {
+        font-size: 0.7rem;
+    }
+
+    /* Headings */
+    h2,
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    h4 {
+        font-size: 1rem !important;
+    }
+
+    /* Category filters - stack better */
+    .category-filter {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    /* Buttons - ensure touch-friendly */
+    .btn {
+        min-height: 44px;
+        font-size: 0.85rem !important;
+    }
+
+    /* Form inputs - full width on mobile */
+    .form-control,
+    .form-select {
+        font-size: 0.85rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Wallet button - show short text */
+    .wallet-adapter-button {
+        font-size: 0.7rem !important;
+        padding: 0 6px !important;
+        height: 32px !important;
+    }
+
+    /* Tables and overflow content */
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+
+    /* Reduce spacing */
+    .py-4 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .login-tagline {
+        font-size: 0.8rem !important;
+    }
+
+    /* Stack search and sort */
+    div[style*="minWidth: '250px'"] {
+        min-width: 100% !important;
+        flex-direction: column !important;
+    }
+
+    div[style*="minWidth: '250px'"] input,
+    div[style*="minWidth: '250px'"] button {
+        width: 100% !important;
+    }
+}
+
+/* Very Small Devices (360px and below) */
+@media (max-width: 360px) {
+    .navbar-brand {
+        font-size: 0.75rem;
+    }
+
+    .icon-btn {
+        width: 26px;
+        height: 26px;
+    }
+
+    .wallet-adapter-button {
+        font-size: 0.65rem !important;
+        padding: 0 4px !important;
+    }
+
+    h2,
+    h3 {
+        font-size: 1.1rem !important;
+    }
+}

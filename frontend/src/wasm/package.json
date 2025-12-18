@@ -1,0 +1,15 @@
+{
+  "name": "security_enclave",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "security_enclave_bg.wasm",
+    "security_enclave.js",
+    "security_enclave.d.ts"
+  ],
+  "main": "security_enclave.js",
+  "types": "security_enclave.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
